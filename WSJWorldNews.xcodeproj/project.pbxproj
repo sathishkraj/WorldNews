@@ -12,6 +12,8 @@
 		B82FC4F521BA164E0047425E /* XMLContentManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FC4F421BA164E0047425E /* XMLContentManagerTests.swift */; };
 		B82FC4F721BA16B70047425E /* NetworkManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FC4F621BA16B70047425E /* NetworkManagerSpy.swift */; };
 		B82FC4F921BA261C0047425E /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82FC4F821BA261C0047425E /* SafariServices.framework */; };
+		B82FC4FC21BAADA10047425E /* CustomURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FC4FB21BAADA10047425E /* CustomURLProtocol.swift */; };
+		B82FC4FE21BAF1C80047425E /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FC4FD21BAF1C80047425E /* NetworkManagerTests.swift */; };
 		B839C50E21B8A36600CC718C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839C50D21B8A36600CC718C /* AppDelegate.swift */; };
 		B839C51021B8A36600CC718C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839C50F21B8A36600CC718C /* HomeViewController.swift */; };
 		B839C51321B8A36600CC718C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B839C51121B8A36600CC718C /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		B82FC4F421BA164E0047425E /* XMLContentManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLContentManagerTests.swift; sourceTree = "<group>"; };
 		B82FC4F621BA16B70047425E /* NetworkManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerSpy.swift; sourceTree = "<group>"; };
 		B82FC4F821BA261C0047425E /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		B82FC4FB21BAADA10047425E /* CustomURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLProtocol.swift; sourceTree = "<group>"; };
+		B82FC4FD21BAF1C80047425E /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		B839C50A21B8A36600CC718C /* WSJWorldNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSJWorldNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B839C50D21B8A36600CC718C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B839C50F21B8A36600CC718C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				B82FC4F221B9D0380047425E /* ContentMangerSpy.swift */,
 				B82FC4F421BA164E0047425E /* XMLContentManagerTests.swift */,
 				B82FC4F621BA16B70047425E /* NetworkManagerSpy.swift */,
+				B82FC4FB21BAADA10047425E /* CustomURLProtocol.swift */,
+				B82FC4FD21BAF1C80047425E /* NetworkManagerTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -328,7 +334,9 @@
 			files = (
 				B839C52321B8A36900CC718C /* WSJWorldNewsTests.swift in Sources */,
 				B82FC4F721BA16B70047425E /* NetworkManagerSpy.swift in Sources */,
+				B82FC4FC21BAADA10047425E /* CustomURLProtocol.swift in Sources */,
 				B82FC4F521BA164E0047425E /* XMLContentManagerTests.swift in Sources */,
+				B82FC4FE21BAF1C80047425E /* NetworkManagerTests.swift in Sources */,
 				B82FC4F021B9CDC40047425E /* HomeViewModelTests.swift in Sources */,
 				B82FC4F321B9D0380047425E /* ContentMangerSpy.swift in Sources */,
 			);

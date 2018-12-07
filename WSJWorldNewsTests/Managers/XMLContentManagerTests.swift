@@ -7,8 +7,8 @@ import XCTest
 
 class XMLContentManagerTests: XCTestCase {
   
-  let sampleFeed: String = """
-  <item>
+  static let sampleFeed: String = """
+<item>
   <title>
   Arrest of Senior Huawei Executive Steps Up U.S.-China Confrontation
   </title>
@@ -47,7 +47,7 @@ class XMLContentManagerTests: XCTestCase {
         self.item = item
       }
     }
-    networkManagerSpy.responseData = sampleFeed.data(using: .utf8)
+    networkManagerSpy.responseData = XMLContentManagerTests.sampleFeed.data(using: .utf8)
     waitForExpectations(timeout: 3, handler: nil)
     
     XCTAssertNotNil(item, "should not be nil")

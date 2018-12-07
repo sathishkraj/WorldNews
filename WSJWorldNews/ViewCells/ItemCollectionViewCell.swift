@@ -16,6 +16,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
       guard let viewModel = viewModel else {
         return
       }
+      isAccessibilityElement = true
+      accessibilityLabel = viewModel.title
       title.text = viewModel.title
       pubDate.text = viewModel.pubDate
       if let image = viewModel.image {
