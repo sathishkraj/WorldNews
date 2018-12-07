@@ -3,13 +3,16 @@
 //  WSJWorldNews
 
 import UIKit
+import SafariServices
 
 class HomeViewController: UIViewController {
 
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   var itemsObserver: NSKeyValueObservation?
   var errorObserver: NSKeyValueObservation?
   var parserCompletionObserver: NSKeyValueObservation?
+  var loadingObserver: NSKeyValueObservation?
   
   let viewModel = HomeViewModel()
   
@@ -28,14 +31,41 @@ class HomeViewController: UIViewController {
     itemsObserver = viewModel.observe(\.items, options: [.new, .old]) { [weak self] viewModel, _ in
       self?.collectionView.reloadData()
     }
-    errorObserver = viewModel.observe(\.error, options: [.new, .old]) { viewModel, _ in
-      // TODO - handle error
+    
+    errorObserver = viewModel.observe(\.error, options: [.new, .old]) { [weak self] viewModel, _ in
+      self?.showError()
+      viewModel.isLoadingItems = false
     }
+    
     parserCompletionObserver = viewModel.observe(\.didComplete, options: [.new, .old]) { viewModel, _ in
       // TODO - handle if any after complete
     }
+    
+    loadingObserver = viewModel.observe(\.isLoadingItems, options: [.new, .old]) { [weak self] viewModel, _ in
+      if viewModel.isLoadingItems {
+        self?.activityIndicator.startAnimating()
+      } else {
+        self?.activityIndicator.stopAnimating()
+      }
+    }
   }
 
+  func showError() {
+    guard let nsError = viewModel.error as NSError? else {
+      return
+    }
+    let alertViewController = UIAlertController(title: nsError.domain, message: nsError.localizedDescription, preferredStyle: .alert)
+    let alertActionOk = UIAlertAction(title: "Ok", style: .default) { action in
+      alertViewController.dismiss(animated: true, completion:nil)
+    }
+    alertViewController.addAction(alertActionOk)
+    present(alertViewController, animated: true, completion: nil)
+  }
+  
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransition(to: size, with: coordinator)
+    collectionView?.collectionViewLayout.invalidateLayout()
+  }
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -59,12 +89,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard let url = viewModel.item(at: indexPath.row)?.link else {
+    guard let urlString = viewModel.item(at: indexPath.row)?.link, let url = URL(string: urlString) else {
       return
     }
-    let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-    let detailsViewController = storyBoard.instantiateViewController(withIdentifier: "DetailsView") as! DetailsViewController
-    detailsViewController.urlString = url
-    navigationController?.pushViewController(detailsViewController, animated: true)
+    let safariViewController = SFSafariViewController(url: url)
+    navigationController?.pushViewController(safariViewController, animated: true)
   }
 }

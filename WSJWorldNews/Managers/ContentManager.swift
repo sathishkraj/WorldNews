@@ -10,7 +10,11 @@ protocol ContentManagerProtocol {
 
 class ContentManager: ContentManagerProtocol {
   
-  let xmlContentManager = XMLContentManager()
+  let xmlContentManager: XMLContentManagerProtocol
+  
+  init(xmlContentManager: XMLContentManagerProtocol = XMLContentManager()) {
+    self.xmlContentManager = xmlContentManager
+  }
   
   func itemStream(for url: String, handler: @escaping ResultHandler) {
     // TODO - check the items in cache else fetch fresh

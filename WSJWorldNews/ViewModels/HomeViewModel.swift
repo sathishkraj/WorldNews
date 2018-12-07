@@ -18,21 +18,26 @@ class HomeViewModel: NSObject {
   @objc dynamic var items: [Item] = []
   @objc dynamic var error: Error?
   @objc dynamic var didComplete: Bool = false
+  @objc dynamic var isLoadingItems: Bool = false
   var cellModelCache: [IndexPath: ItemCellViewModel] = [:]
   
-  init(_ contentManager: ContentManagerProtocol = ContentManager()) {
+  init(contentManager: ContentManagerProtocol = ContentManager()) {
     self.contentManager = contentManager
   }
   
   func fetchItems() {
-    parserQueue.async {
-      self.contentManager.itemStream(for: HomeViewConstants.feedUrl) { [weak self] item, error, didComplete in
-        if let item = item {
-          self?.items.append(item)
-        } else if let error = error {
-          self?.error = error
-        } else if didComplete {
-          self?.didComplete = didComplete
+    isLoadingItems = true
+    parserQueue.async { [weak self] in
+      self?.contentManager.itemStream(for: HomeViewConstants.feedUrl) { [weak self] item, error, didComplete in
+        DispatchQueue.main.async {
+          if let item = item {
+            self?.items.append(item)
+          } else if let error = error {
+            self?.error = error
+          } else if didComplete {
+            self?.didComplete = didComplete
+            self?.isLoadingItems = false
+          }
         }
       }
     }

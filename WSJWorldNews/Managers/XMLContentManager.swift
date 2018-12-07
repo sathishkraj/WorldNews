@@ -5,6 +5,10 @@
 import UIKit
 import libxml2
 
+protocol XMLContentManagerProtocol {
+  func fetchItem(for url: String, handler: @escaping ResultHandler)
+}
+
 struct XMLFeedConstants {
   static let item = "item"
   static let title = "title"
@@ -23,7 +27,7 @@ struct XMLFeedConstants {
 
 typealias ResultHandler = (Item?, Error?, Bool) -> Void
 
-class XMLContentManager: NSObject {
+class XMLContentManager: NSObject, XMLContentManagerProtocol {
   
   var context: xmlParserCtxtPtr?
   var didDownloadComplete = false
@@ -31,7 +35,7 @@ class XMLContentManager: NSObject {
   var appendingCharacters = false
   var stringBuffer: String = ""
   var currentItem: Item?
-  let networkManager: NetworkManager
+  let networkManager: NetworkManagerProtocol
   var dataObserver: NSKeyValueObservation?
   var completionObserver: NSKeyValueObservation?
   var completionHandler: ResultHandler?
@@ -46,7 +50,11 @@ class XMLContentManager: NSObject {
     return handler
   }()
   
-  init(_ networkManager: NetworkManager = NetworkManager()) {
+  var networkManagerInstance: NetworkManager? {
+    return networkManager as? NetworkManager
+  }
+  
+  init(networkManager: NetworkManagerProtocol = NetworkManager()) {
     self.networkManager = networkManager
   }
   
@@ -57,16 +65,18 @@ class XMLContentManager: NSObject {
     observeDataLoad()
     _ = networkManager.request(for: url)
     
+    guard !Thread.current.isMainThread else {
+      return
+    }
     //Hold the sub thread until download complete
     repeat {
       RunLoop.current.run(mode: .default, before: Date.distantFuture)
     } while (!didDownloadComplete)
     
-    xmlFreeParserCtxt(context)
   }
   
   func observeDataLoad() {
-    dataObserver = networkManager.observe(\.dataChunk, options: [.new, .old]) { [weak self] manager, _ in
+    dataObserver = networkManagerInstance?.observe(\.dataChunk, options: [.new, .old]) { [weak self] manager, _ in
       guard let data = manager.dataChunk, let context = self?.context else {
         return
       }
@@ -74,12 +84,13 @@ class XMLContentManager: NSObject {
         xmlParseChunk(context, bytes, CInt(data.count), 0)
       }
     }
-    completionObserver = networkManager.observe(\.error, options: [.new, .old]) { [weak self] manager, _ in
+    completionObserver = networkManagerInstance?.observe(\.error, options: [.new, .old]) { [weak self] manager, _ in
       guard let context = self?.context else {
         return
       }
       xmlParseChunk(context, nil, 0, 1)
       self?.didDownloadComplete = true
+      xmlFreeParserCtxt(context) //release context
       self?.completionHandler?(nil, manager.error, true)
     }
   }

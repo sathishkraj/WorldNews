@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B82FC4F021B9CDC40047425E /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FC4EF21B9CDC40047425E /* HomeViewModelTests.swift */; };
+		B82FC4F321B9D0380047425E /* ContentMangerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FC4F221B9D0380047425E /* ContentMangerSpy.swift */; };
+		B82FC4F521BA164E0047425E /* XMLContentManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FC4F421BA164E0047425E /* XMLContentManagerTests.swift */; };
+		B82FC4F721BA16B70047425E /* NetworkManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FC4F621BA16B70047425E /* NetworkManagerSpy.swift */; };
+		B82FC4F921BA261C0047425E /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82FC4F821BA261C0047425E /* SafariServices.framework */; };
 		B839C50E21B8A36600CC718C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839C50D21B8A36600CC718C /* AppDelegate.swift */; };
 		B839C51021B8A36600CC718C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839C50F21B8A36600CC718C /* HomeViewController.swift */; };
 		B839C51321B8A36600CC718C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B839C51121B8A36600CC718C /* Main.storyboard */; };
@@ -21,8 +26,8 @@
 		B839C53D21B8A5FE00CC718C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839C53C21B8A5FE00CC718C /* HomeViewModel.swift */; };
 		B839C54021B8A93B00CC718C /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839C53F21B8A93B00CC718C /* ItemCollectionViewCell.swift */; };
 		B839C54221B8A9B200CC718C /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839C54121B8A9B200CC718C /* ItemCellViewModel.swift */; };
-		B839C54421B8C9A500CC718C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B839C54321B8C9A500CC718C /* DetailsViewController.swift */; };
 		B839C54621B8C9DB00CC718C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B839C54521B8C9DB00CC718C /* WebKit.framework */; };
+		B839C54821B9766100CC718C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B839C54721B9766100CC718C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B82FC4EF21B9CDC40047425E /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		B82FC4F221B9D0380047425E /* ContentMangerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMangerSpy.swift; sourceTree = "<group>"; };
+		B82FC4F421BA164E0047425E /* XMLContentManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLContentManagerTests.swift; sourceTree = "<group>"; };
+		B82FC4F621BA16B70047425E /* NetworkManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerSpy.swift; sourceTree = "<group>"; };
+		B82FC4F821BA261C0047425E /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		B839C50A21B8A36600CC718C /* WSJWorldNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSJWorldNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B839C50D21B8A36600CC718C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B839C50F21B8A36600CC718C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -54,8 +64,8 @@
 		B839C53C21B8A5FE00CC718C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B839C53F21B8A93B00CC718C /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		B839C54121B8A9B200CC718C /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
-		B839C54321B8C9A500CC718C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B839C54521B8C9DB00CC718C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		B839C54721B9766100CC718C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82FC4F921BA261C0047425E /* SafariServices.framework in Frameworks */,
 				B839C54621B8C9DB00CC718C /* WebKit.framework in Frameworks */,
 				B839C52F21B8A37C00CC718C /* libxml2.tbd in Frameworks */,
 			);
@@ -78,9 +89,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B82FC4EE21B9C26A0047425E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B82FC4EF21B9CDC40047425E /* HomeViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B82FC4F121B9D00B0047425E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B82FC4F221B9D0380047425E /* ContentMangerSpy.swift */,
+				B82FC4F421BA164E0047425E /* XMLContentManagerTests.swift */,
+				B82FC4F621BA16B70047425E /* NetworkManagerSpy.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		B839C50121B8A36600CC718C = {
 			isa = PBXGroup;
 			children = (
+				B839C54721B9766100CC718C /* README.md */,
 				B839C50C21B8A36600CC718C /* WSJWorldNews */,
 				B839C52121B8A36900CC718C /* WSJWorldNewsTests */,
 				B839C50B21B8A36600CC718C /* Products */,
@@ -116,6 +146,8 @@
 		B839C52121B8A36900CC718C /* WSJWorldNewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				B82FC4F121B9D00B0047425E /* Managers */,
+				B82FC4EE21B9C26A0047425E /* ViewModels */,
 				B839C52221B8A36900CC718C /* WSJWorldNewsTests.swift */,
 				B839C52421B8A36900CC718C /* Info.plist */,
 			);
@@ -125,6 +157,7 @@
 		B839C52D21B8A37C00CC718C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B82FC4F821BA261C0047425E /* SafariServices.framework */,
 				B839C54521B8C9DB00CC718C /* WebKit.framework */,
 				B839C52E21B8A37C00CC718C /* libxml2.tbd */,
 			);
@@ -136,7 +169,6 @@
 			children = (
 				B839C50F21B8A36600CC718C /* HomeViewController.swift */,
 				B839C51121B8A36600CC718C /* Main.storyboard */,
-				B839C54321B8C9A500CC718C /* DetailsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,6 +291,7 @@
 			files = (
 				B839C51821B8A36900CC718C /* LaunchScreen.storyboard in Resources */,
 				B839C51521B8A36900CC718C /* Assets.xcassets in Resources */,
+				B839C54821B9766100CC718C /* README.md in Resources */,
 				B839C51321B8A36600CC718C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +319,6 @@
 				B839C54021B8A93B00CC718C /* ItemCollectionViewCell.swift in Sources */,
 				B839C53721B8A51200CC718C /* XMLContentManager.swift in Sources */,
 				B839C50E21B8A36600CC718C /* AppDelegate.swift in Sources */,
-				B839C54421B8C9A500CC718C /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B839C52321B8A36900CC718C /* WSJWorldNewsTests.swift in Sources */,
+				B82FC4F721BA16B70047425E /* NetworkManagerSpy.swift in Sources */,
+				B82FC4F521BA164E0047425E /* XMLContentManagerTests.swift in Sources */,
+				B82FC4F021B9CDC40047425E /* HomeViewModelTests.swift in Sources */,
+				B82FC4F321B9D0380047425E /* ContentMangerSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,7 +4,11 @@
 
 import UIKit
 
-class NetworkManager: NSObject {
+protocol NetworkManagerProtocol {
+  func request(for url: String) -> URLSessionTask?
+}
+
+class NetworkManager: NSObject, NetworkManagerProtocol {
   typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
   @objc dynamic var dataChunk: Data?
   @objc dynamic var error: Error?
