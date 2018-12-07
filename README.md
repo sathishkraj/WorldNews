@@ -5,7 +5,7 @@ Used libxml to parse the feed, this has ability to parse the data chunk by chunk
 
 Design Pattern - MVVM
 
-[embed]https://s3.amazonaws.com/sample-images1/pdf/SampleAppArchitecture.pdf
+[embed]https://s3.amazonaws.com/sample-images1/pdf/SampleAppArchitecture.pdf[/embed]
 
 
 
