@@ -51,9 +51,7 @@ class HomeViewController: UIViewController {
   }
 
   func showError() {
-    guard let nsError = viewModel.error as NSError? else {
-      return
-    }
+    guard let nsError = viewModel.error as NSError? else { return }
     let alertViewController = UIAlertController(title: nsError.domain, message: nsError.localizedDescription, preferredStyle: .alert)
     let alertActionOk = UIAlertAction(title: "Ok", style: .default) { action in
       alertViewController.dismiss(animated: true, completion:nil)
